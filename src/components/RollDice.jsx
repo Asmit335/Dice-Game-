@@ -30,7 +30,6 @@ align-items: center;
 flex-direction: column;
 cursor: pointer;
 /* justify-content: center; */
-margin-top: 3rem;
 
 .dices{
     height: 250px;
