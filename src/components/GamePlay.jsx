@@ -12,7 +12,6 @@ export const GamePlay = () => {
   const [currrentDice, setcurrrentDice] = useState(2);
   const [score, setscore] = useState(0)
   const [errorMessage, setErrorMessage] = useState('');
-  const [imagerules, setImagerules] = useState(false)
 
 
   const generateRandomNumber=()=>{
@@ -30,7 +29,7 @@ export const GamePlay = () => {
   
        if(randomNumber===selectedNumber){
         setscore(score + randomNumber)
-        console.log("Matched")
+        // console.log("Matched")
        }
        else{
         setscore(score - 1)
@@ -39,10 +38,11 @@ export const GamePlay = () => {
        setSelectedNumber(undefined);
     }
 
-    const handleRules =()=>{
-      setImagerules(!imagerules)
-    }
+    
 
+    const handlereset=()=>{
+      setscore(0);
+    }
 
   return (
     <>
@@ -69,17 +69,11 @@ export const GamePlay = () => {
       <div className="flexBtn">
 
 
-    <OutlineBtn>Reset</OutlineBtn>
-    <Button onClick={handleRules}>Show Rules</Button>
+    <OutlineBtn
+    onClick={handlereset}
+    >Reset</OutlineBtn>
       </div>
-
-      <div className="rulesImg">
-
-      {
-        setImagerules && (<img src='/images/rules.png' alt='loading'></img>) 
-      }
-      </div>
-
+ 
 
      
     
@@ -106,9 +100,5 @@ padding-top: 5rem;
 
   }
 
-  .rulesImg{
-    display: flex;
-    justify-content: center;
-  }
 `
 
