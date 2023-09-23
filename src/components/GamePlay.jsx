@@ -20,7 +20,7 @@ export const GamePlay = () => {
       setErrorMessage("Please Select The Number.")
       return;
     }
-    setErrorMessage("")
+    // setErrorMessage("")
 
     const randomNumber= Math.floor(Math.random() * 6) + 1;
     console.log(randomNumber)
@@ -46,6 +46,7 @@ export const GamePlay = () => {
    ></TotalScore>
     <NumberSelector
     errorMessage={errorMessage}
+    setErrorMessage={setErrorMessage}
     selectedNumber={selectedNumber}
     setSelectedNumber={setSelectedNumber}
     ></NumberSelector>

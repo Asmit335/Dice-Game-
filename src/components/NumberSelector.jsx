@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const NumberSelector = ({errorMessage,setSelectedNumber,selectedNumber}) => {
+export const NumberSelector = ({setErrorMessage,errorMessage,setSelectedNumber,selectedNumber}) => {
   const arrNumber = [1, 2, 3, 4, 5, 6];
+
+  const handleErrorMessage =(value)=>{
+    setSelectedNumber(value)
+    setErrorMessage("")
+  }
 
   return (
     <>
@@ -13,7 +18,7 @@ export const NumberSelector = ({errorMessage,setSelectedNumber,selectedNumber}) 
         {arrNumber.map((value, i) => (
           <Box
             isSelected={value === selectedNumber}
-            onClick={() => setSelectedNumber(value)}
+            onClick={() => handleErrorMessage(value)}
             key={i}
           >
             <h1>{value}</h1>
