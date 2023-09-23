@@ -4,6 +4,7 @@ import { NumberSelector } from './NumberSelector'
 import styled from 'styled-components';
 import { RollDice } from './RollDice';
 import { useState } from 'react';
+import { Button, OutlineBtn } from './Button';
 
 export const GamePlay = () => {
 
@@ -11,6 +12,7 @@ export const GamePlay = () => {
   const [currrentDice, setcurrrentDice] = useState(2);
   const [score, setscore] = useState(0)
   const [errorMessage, setErrorMessage] = useState('');
+  const [imagerules, setImagerules] = useState(false)
 
 
   const generateRandomNumber=()=>{
@@ -37,6 +39,11 @@ export const GamePlay = () => {
        setSelectedNumber(undefined);
     }
 
+    const handleRules =()=>{
+      setImagerules(!imagerules)
+    }
+
+
   return (
     <>
     <MainContainer>
@@ -51,12 +58,34 @@ export const GamePlay = () => {
     setSelectedNumber={setSelectedNumber}
     ></NumberSelector>
    </div>
-    </MainContainer>
     <RollDice
     currrentDice={currrentDice}
     // setcurrrentDice={setcurrrentDice}
     generateRandomNumber={generateRandomNumber}
     ></RollDice>
+
+     
+    
+      <div className="flexBtn">
+
+
+    <OutlineBtn>Reset</OutlineBtn>
+    <Button onClick={handleRules}>Show Rules</Button>
+      </div>
+
+      <div className="rulesImg">
+
+      {
+        setImagerules && (<img src='/images/rules.png' alt='loading'></img>) 
+      }
+      </div>
+
+
+     
+    
+      
+
+    </MainContainer>
 
     </>
   )
@@ -67,6 +96,19 @@ padding-top: 5rem;
   .container{
     display: flex;
     justify-content: space-around;
+  }
+ 
+  .flexBtn{
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    flex-direction: column;
+
+  }
+
+  .rulesImg{
+    display: flex;
+    justify-content: center;
   }
 `
 
