@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState } from 'react';
 
-export const NumberSelector = () => {
+export const NumberSelector = ({errorMessage,setSelectedNumber,selectedNumber}) => {
   const arrNumber = [1, 2, 3, 4, 5, 6];
-  const [selectedNumber, setSelectedNumber] = useState();
 
   return (
     <>
      <NumberSelector1>
+    <p className='error'>{errorMessage}
+      </p>
      <div className='numbers'>
         {arrNumber.map((value, i) => (
           <Box
@@ -36,6 +36,11 @@ const NumberSelector1=styled.div`
     h3{
         float: right;
         
+    }
+    .error{
+      color: red;
+      font-weight: 600;
+      padding-bottom: 1rem;
     }
 `
 

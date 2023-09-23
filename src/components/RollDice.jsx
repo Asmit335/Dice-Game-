@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export const RollDice = () => {
-
-  const [currrentDice, setcurrrentDice] = useState(4);
+export const RollDice = ({generateRandomNumber,currrentDice}) => {
 
 
-  const generateRandomNumber=()=>{
-  const randomNumber= Math.floor(Math.random() * 6) + 1;
-  // console.log(randomNumber)
-     setcurrrentDice(randomNumber)
-  }
+
+  // const generateRandomNumber=()=>{
+  //   const randomNumber= Math.floor(Math.random() * 6) + 1;
+  //   // console.log(randomNumber)
+  //      setcurrrentDice(randomNumber)
+  
+  //   }
 
   return (
     <DicesPic>
@@ -30,6 +30,7 @@ align-items: center;
 flex-direction: column;
 cursor: pointer;
 /* justify-content: center; */
+/* margin-top: 3rem; */
 
 .dices{
     height: 250px;

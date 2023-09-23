@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-export const TotalScore = () => {
+export const TotalScore = ({score}) => {
   return (
     <>
     <TotalScoreCss>
       <div className="totalScore">
-        <h1>0</h1>
+        <h1>{score}</h1>
         <p>Total Score</p>
       </div>
     </TotalScoreCss>
